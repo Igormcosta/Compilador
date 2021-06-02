@@ -1,0 +1,22 @@
+int main () { 
+    int  pai ;
+    char mae;
+    pai = (a-23.0*12)+34;
+    mae = 'M' ;
+    while (mae=='M'){ 
+        float son ;
+        char mae;
+    }
+
+    pai = 23 ;
+
+    if(pai==mae-2) {
+        pai =  23 ; 
+        } else if(1==2) {
+        mae=12 ;
+        }
+
+    if(pai==mae-2) {
+        pai =  23 ;
+        }
+}
