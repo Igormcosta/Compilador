@@ -42,10 +42,12 @@ public class Scanner {
             column++;
             switch (estado) {
                 case 0:
-                    if (isLetra(currentChar)) {
-                        buffer += currentChar;
+                    if (isEOF()) {
+                        return null;
+                    } else if (isLetra(currentChar)) {
+                    	buffer += currentChar;
                         estado = 1;
-                    } else if (isDigit(currentChar)) {
+                    }else if (isDigit(currentChar)) {
                         estado = 3;
                         buffer += currentChar;
                     } else if (isSpace(currentChar)) {
@@ -83,7 +85,7 @@ public class Scanner {
                     } else {
                         buffer += currentChar;
                         System.out.print("\"" + buffer + "\" ");
-                        throw new LexicalException("Váriavel mal formada");
+                        throw new LexicalException("VÃ¡riavel mal formada");
                     }
                     break;
                 case 2:
@@ -108,7 +110,7 @@ public class Scanner {
                     } else {
                         buffer += currentChar;
                         System.out.print("\"" + buffer + "\" ");
-                        throw new LexicalException("Número mal formado");
+                        throw new LexicalException("NÃºmero mal formado");
                     }
                     break;
                 case 4:
@@ -185,10 +187,10 @@ public class Scanner {
                             //aritmetico menos
                             return setando(token, 7, buffer);
                         } else if (buffer.compareTo("*") == 0) {
-                            //aritmetico multiplicação
+                            //aritmetico multiplicaÃ§Ã£o
                             return setando(token, 9, buffer);
                         } else if (buffer.compareTo("/") == 0) {
-                            //aritmetico divisão
+                            //aritmetico divisÃ£o
                             return setando(token, 10, buffer);
                         } else {
                             //aritmetico igual
@@ -337,11 +339,16 @@ public class Scanner {
     }
 
     private char nextChar() {
+    	if (isEOF()) {
+			return '\0';
+		}	
         return content[pos++];
     }
 
-    private boolean isEOF() {
-        return pos == content.length;
+    public boolean isEOF() {
+    	//System.out.println(pos);
+    	//System.out.println(content.length);
+        return pos >= content.length;
     }
 
     private boolean isEOF(char c) {
@@ -353,3 +360,4 @@ public class Scanner {
     }
 
 }
+

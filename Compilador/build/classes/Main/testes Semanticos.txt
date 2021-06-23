@@ -1,0 +1,55 @@
+
+////////testes de escopo///////////
+
+//Variáveis precisam ser declaradas antes do uso.
+
+int main () {    
+    filho = 'm';      
+}
+
+//Não podem haver variáveis com o mesmo nome no mesmo escopo.
+
+int main () { 
+    int pai;
+    float pai;
+     
+}
+
+//Variáveis podem ter o mesmo nome, desde de que se pertencentes a escopos diferentes (sub-blocos)
+
+int main () { 
+    int pai;
+    {
+        float pai;
+    }
+     
+}
+//////////atribuição e operações///////////
+
+//A atribuição tem de ser do mesmo tipo da declaração de variavel ou vai dar erro (tirando interação int para float)
+
+int main () { 
+    int pai;
+    pai = 'm';
+     
+}
+
+//Operações de int dentro de um tipo Float são permitidas, mas não o contrario
+
+int main () { 
+    int pai;
+    float filho;
+    pai= 10;
+    filho=20;
+    filho = 20+pai;
+    pai= filho+10;
+}
+
+//Char so tem operação com char
+
+int main () { 
+    int pai;
+    char mae;
+    pai= 10;
+    mae= 10+mae;
+}

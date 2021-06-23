@@ -13,9 +13,18 @@ import java.util.Objects;
  */
 public class Variable {
 
+    public static final int INT = 1;
+    public static final int CHAR = 3;
+    public static final int FLOAT = 4;
+
     private String name;
     private String type;
+    private int typeID;
     private int bloco;
+
+    public final String TEXT[] = {
+        "IDENTIFIER", "INT", "ASSIGN", "CHAR", "FLOAT"
+    };
 
     public Variable() {
     }
@@ -39,6 +48,20 @@ public class Variable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getTypeID() {
+        if (type.compareTo("int") == 0) {
+            return 1;
+        } else if (type.compareTo("float") == 0) {
+            return 4;
+        } else {
+            return 3;
+        }
+    }
+
+    public void setTypeID(int typeID) {
+        this.typeID = typeID;
     }
 
     public int getBloco() {
@@ -65,6 +88,5 @@ public class Variable {
         }
         return true;
     }
-
 
 }
